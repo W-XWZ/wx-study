@@ -1,0 +1,23 @@
+2020-08-31 20:02:13 INFO  [com.wx.Testttt] Starting Testttt on LD8SK4KUJPZ8SNV with PID 24408 (started by Administrator in W:\java-work\distribution)
+2020-08-31 20:02:13 INFO  [com.wx.Testttt] No active profile set, falling back to default profiles: default
+2020-08-31 20:02:16 INFO  [com.wx.Testttt] Started Testttt in 3.627 seconds (JVM running for 4.374)
+2020-08-31 20:02:55 INFO  [com.wx.Testttt] Starting Testttt on LD8SK4KUJPZ8SNV with PID 34528 (started by Administrator in W:\java-work\distribution)
+2020-08-31 20:02:55 DEBUG [com.wx.Testttt] Running with Spring Boot v2.1.1.RELEASE, Spring v5.1.3.RELEASE
+2020-08-31 20:02:55 INFO  [com.wx.Testttt] No active profile set, falling back to default profiles: default
+2020-08-31 20:02:58 INFO  [com.wx.Testttt] Started Testttt in 3.71 seconds (JVM running for 4.465)
+2020-08-31 20:02:58 DEBUG [c.w.t.D.save] ==>  Preparing: insert into price(btcusd) value(3) 
+2020-08-31 20:02:58 DEBUG [c.w.t.D.save] ==> Parameters: 
+2020-08-31 20:02:58 DEBUG [c.w.t.D.save] <==    Updates: 1
+2020-08-31 20:02:59 DEBUG [c.w.t.D.save] ==>  Preparing: insert into price_copy1(btcusd) value(3) 
+2020-08-31 20:02:59 DEBUG [c.w.t.D.save] ==> Parameters: 
+2020-08-31 20:02:59 DEBUG [c.w.t.D.save] <==    Updates: 1
+2020-08-31 20:49:50 INFO  [com.wx.Testttt] Starting Testttt on LD8SK4KUJPZ8SNV with PID 33856 (started by Administrator in W:\java-work\distribution)
+2020-08-31 20:49:50 DEBUG [com.wx.Testttt] Running with Spring Boot v2.1.1.RELEASE, Spring v5.1.3.RELEASE
+2020-08-31 20:49:50 INFO  [com.wx.Testttt] No active profile set, falling back to default profiles: default
+2020-08-31 20:49:53 INFO  [com.wx.Testttt] Started Testttt in 3.886 seconds (JVM running for 4.634)
+2020-08-31 20:49:54 DEBUG [c.w.t.D.save] ==>  Preparing: insert into price(btcusd) value(3) 
+2020-08-31 20:49:54 DEBUG [c.w.t.D.save] ==> Parameters: 
+2020-08-31 20:49:54 DEBUG [c.w.t.D.save] <==    Updates: 1
+2020-08-31 20:49:54 DEBUG [c.w.t.D.save] ==>  Preparing: insert into price_copy1(btcusd) value(3) 
+2020-08-31 20:49:54 DEBUG [c.w.t.D.save] ==> Parameters: 
+2020-08-31 20:49:54 DEBUG [c.w.t.D.save] <==    Updates: 1

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+  <property name="project" value="dive"/>
+
+  <property name="maxHistory" value="30" />
+  <springProfile name="local">
+    <property name="logRoot" value="../dive-logs/local"/>
+    <property name="logLevel" value="debug"/>
+  </springProfile>
+
+  <springProfile name="dev">
+    <property name="logRoot" value="../dive-logs/dev"/>
+    <property name="logLevel" value="debug"/>
+  </springProfile>
+
+  <springProfile name="gray">
+    <property name="logRoot" value="../dive-logs/gray"/>
+    <property name="logLevel" value="debug"/>
+  </springProfile>
+
+  <springProfile name="prod">
+    <property name="logRoot" value="../dive-logs/prod"/>
+    <property name="logLevel" value="info"/>
+  </springProfile>
+
+  <springProfile name="task">
+    <property name="logRoot" value="../dive-logs/task"/>
+    <property name="logLevel" value="debug"/>
+  </springProfile>
+
+  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{16}] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="dao" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>${logRoot}/dive_dao.%d{yyyy-MM-dd}.log
+      </FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{16}] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="service" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>${logRoot}/dive_service.%d{yyyy-MM-dd}.log
+      </FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{16}] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="controller" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>${logRoot}/dive_controller.%d{yyyy-MM-dd}.log
+      </FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{16}] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="interceptor" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>${logRoot}/dive_interceptor.%d{yyyy-MM-dd}.log
+      </FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{16}] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="task" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>${logRoot}/dive_task.%d{yyyy-MM-dd}.log
+      </FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{16}] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="exception" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>${logRoot}/dive_exception.%d{yyyy-MM-dd}.log
+      </FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{16}] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="util" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>${logRoot}/dive_util.%d{yyyy-MM-dd}.log
+      </FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{16}] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <appender name="dive" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <FileNamePattern>${logRoot}/dive_default.%d{yyyy-MM-dd}.log
+      </FileNamePattern>
+      <MaxHistory>30</MaxHistory>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger{16}] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+
+  <logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" additivity="false">
+    <level value="DEBUG"/>
+    <appender-ref ref="controller"/>
+  </logger>
+
+  <logger name="com.estate.dao" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="dao"/>
+  </logger>
+  <logger name="com.estate.service" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="service"/>
+  </logger>
+  <logger name="com.estate.controller" additivity="false">
+    <level value="DEBUG"/>
+    <appender-ref ref="controller"/>
+  </logger>
+  <logger name="com.estate.interceptor" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="interceptor"/>
+  </logger>
+
+  <logger name="com.estate.task" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="task"/>
+  </logger>
+  <logger name="com.estate.exception" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="exception"/>
+  </logger>
+  <logger name="com.estate.util" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="util"/>
+  </logger>
+  <logger name="com.wx" additivity="false">
+    <level value="DEBUG"/>
+    <appender-ref ref="dive"/>
+  </logger>
+
+  <logger name="com.estate.dao" additivity="false">
+    <level value="DEBUG"/>
+    <appender-ref ref="Console"/>
+  </logger>
+  <logger name="com.estate.service" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="Console"/>
+  </logger>
+  <logger name="com.estate.controller" additivity="false">
+    <level value="DEBUG"/>
+    <appender-ref ref="Console"/>
+  </logger>
+  <logger name="com.estate.interceptor" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="Console"/>
+  </logger>
+
+  <logger name="com.estate.exception" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="Console"/>
+  </logger>
+  <logger name="com.estate.util" additivity="false">
+    <level value="INFO"/>
+    <appender-ref ref="Console"/>
+  </logger>
+
+  <root level="INFO">
+    <appender-ref ref="Console"/>
+  </root>
+
+
+</configuration>
